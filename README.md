@@ -1,7 +1,7 @@
 # Accelerate your Lambda Code Updates
 
-## This is just a preview! It's not event an Alpha version. But it works!
-## Important: It doesn't work with a short form `!Sub` syntax, use Syntax for the full function name! [An Example Here](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-sub.html)
+#### This is just a preview! It's not event an Alpha version. But it works!
+#### Important: It doesn't work with a short form `!Sub` syntax, use Syntax for the full function name! [An Example Here](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-sub.html)
 
 1. `cd` into your serverless project main directory (where the template.yaml is located)
 2. `git clone` this repository
@@ -9,3 +9,38 @@
 4. add to your main package.json under scripts `"scotty": "BUCKET_NAME=<bucket name> node ./scotty/src/index.js"`
 5. run `npm run scotty`
 6. have fun
+
+
+#### This is how YAMl should look like:
+
+```yaml
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: An example for a template that works with scotty!
+
+    Globals:
+    Function:
+        Timeout: 3
+
+
+Resources:
+
+    HelloWorldFunction:
+        Type: AWS::Serverless::Function 
+        Properties:
+            FunctionName: HelloWorldFunction # FunctionName needs to be explicitly passed here!!!
+            CodeUri: hello_world/
+            Handler: app.lambdaHandler
+            Runtime: nodejs8.10
+            Environment: 
+                Variables:
+                    PARAM1: VALUE
+            Events:
+                HelloWorld:
+                    Type: Api 
+                    Properties:
+                        Path: /hello
+                        Method: get
+
+
+```
