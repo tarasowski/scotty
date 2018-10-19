@@ -1,6 +1,6 @@
 {
   "name": "serverless-scotty",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Scotty helps you to accelerate your serverless development with AWS SAM. Scotty updates your Lambda code without redeploying the whole stack.",
   "main": "index.js",
   "bin": {
