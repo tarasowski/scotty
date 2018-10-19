@@ -23,6 +23,7 @@ module.exports.updateCode = async (template, uploadToS3, updateLambdaCode) => {
 
     for (const lambda in resources) {
         if (resources[lambda].Type === 'AWS::Serverless::Function') {
+            const functionName = resources[lambda].Properties.FunctionName
             const extendedLambdaName = Math.random().toString(36).substring(3) + '-' + lambda
             const pathToLambdaCode = resources[lambda].Properties.CodeUri
             const promise = zipFiles(pathToLambdaCode, outputDirectory, extendedLambdaName)
@@ -31,7 +32,7 @@ module.exports.updateCode = async (template, uploadToS3, updateLambdaCode) => {
                     return uploadToS3(extendedLambdaName)
                 })
                 .then(() => {
-                    return updateLambdaCode(lambda, extendedLambdaName)
+                    return updateLambdaCode(functionName, extendedLambdaName)
                 })
                 .catch(err => console.log(err))
             zipPromises.push(promise)
