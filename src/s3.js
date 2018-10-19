@@ -1,5 +1,5 @@
 const AWS = require('aws-sdk')
-const s3 = new AWS.S3({ region: 'eu-west-1' })
+const s3 = new AWS.S3({ region: process.env.REGION })
 const fs = require('fs')
 const path = require('path')
 
