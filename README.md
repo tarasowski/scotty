@@ -1,4 +1,6 @@
-# Accelerate your Lambda Code Updates
+# Accelerate Your Serverless Development with AWS SAM & Scotty
+
+Scotty is a simple tool that uploads your Lambda code without redeployment of the whole stack. Scotty parses your `template.yaml` file, gets all the serverless functions, zips the folders of these functions, uploads them to s3 and calls AWS API `lambda.updateFunctionCode`. Scotty helps you to accelerate your development!
 
 #### This is just a preview! It's not event an Alpha version. But it works!
 #### Note: It doesn't work with a short form `!Sub` syntax, use Syntax for the full function name! [see here](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-sub.html)
