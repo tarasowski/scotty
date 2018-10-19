@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "Scotty helps you to accelerate your serverless development with AWS SAM. Scotty updates your Lambda code without redeploying the whole stack.",
   "main": "index.js",
+  "bin": {
+    "scotty": "./src/index.js"
+  },
   "scripts": {
     "scotty": "BUCKET_NAME=<bucket name> REGION=<region> node ./src/index.js"
   },
