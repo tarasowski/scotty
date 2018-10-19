@@ -1,5 +1,5 @@
 const AWS = require('aws-sdk')
-const lambda = new AWS.Lambda({ region: 'eu-west-1' })
+const lambda = new AWS.Lambda({ region: process.env.REGION })
 
 const BUCKET_NAME = process.env.BUCKET_NAME
 
