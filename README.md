@@ -49,7 +49,8 @@ Resources:
 ### This is how the Output looks like:
 ```sh
 $ npm run scotty
-$ BUCKET_NAME=cli-update-function-test REGION=eu-west-1 node ./scotty/src/index.js
+> sam-app@1.0.0 scotty /scotty-test/sam-app
+> BUCKET_NAME=cli-update-function-test REGION=eu-west-1 node ./scotty/src/index.js
 
 uploading: xoaooj6oh-HelloWorldFunction
 updating: xoaooj6oh-HelloWorldFunction
