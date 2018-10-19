@@ -18,7 +18,7 @@ AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: An example for a template that works with scotty!
 
-    Globals:
+Globals:
     Function:
         Timeout: 3
 
