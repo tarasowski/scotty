@@ -1,0 +1,20 @@
+{
+  "name": "cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./node_modules/.bin/tape ./test/*.test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "archiver-promise": "^1.0.0",
+    "aws-sdk": "^2.338.0",
+    "js-yaml": "^3.12.0"
+  },
+  "devDependencies": {
+    "tape": "^4.9.1"
+  }
+}
