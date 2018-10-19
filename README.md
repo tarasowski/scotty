@@ -53,5 +53,4 @@ $ BUCKET_NAME=cli-update-function-test REGION=eu-west-1 node ./scotty/src/index.
 
 uploading: xoaooj6oh-HelloWorldFunction
 updating: xoaooj6oh-HelloWorldFunction
-MacBook-Pro:sam-app tarasowski$
 ```
