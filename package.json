@@ -1,14 +1,19 @@
 {
-  "name": "cli",
-  "version": "1.0.0",
-  "description": "",
+  "name": "scotty",
+  "version": "0.1.0",
+  "description": "Scotty helps you to accelerate your serverless development with AWS SAM. Scotty updates your Lambda code without redeploying the whole stack.",
   "main": "index.js",
   "scripts": {
-    "test": "node ./node_modules/.bin/tape ./test/*.test.js"
+    "scotty": "BUCKET_NAME=<bucket name> REGION=<region> node ./src/index.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "serverless",
+    "aws sam",
+    "deployment",
+    "lambda"
+  ],
+  "author": "Dimitri Tarasowski",
+  "license": "MIT",
   "dependencies": {
     "archiver-promise": "^1.0.0",
     "aws-sdk": "^2.338.0",
