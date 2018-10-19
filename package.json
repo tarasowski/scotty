@@ -10,7 +10,8 @@
     "serverless",
     "aws sam",
     "deployment",
-    "lambda"
+    "lambda",
+    "framework"
   ],
   "author": "Dimitri Tarasowski",
   "license": "MIT",
