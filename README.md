@@ -8,21 +8,20 @@ Run `npm i serverless-scotty` inside the folder where your `template.yaml` is lo
 
 ### Step 2
 
-Add a command (see below) to your package.json file. *Don't forget to update `BUCKET_NAME`and the `REGION`*
+Add a command (see below) to your package.json file. Don't forget to update `BUCKET_NAME`and the `REGION`
 
 ```json
 "scripts": {
     
-    "scotty": "BUCKET_NAME=cli-update-function-test REGION=eu-west-1 node ./node_modules/.bin/scotty"
+    "scotty": "BUCKET_NAME=<bucket name> REGION=<region> node ./node_modules/.bin/scotty"
   },
 ```
 
 ### Step 3
 
-**Important** 
-1) Make sure your `template.yaml` doesn't contain short form cloudformation functions such as `!Sub`,`!GetAtt`instead use full function names such as `Fn::Sub:`, `Fn:GetAtt`. 
+**Important:** Make sure your `template.yaml` doesn't contain short form cloudformation functions such as `!Sub`,`!GetAtt`instead use full function names such as `Fn::Sub:`, `Fn:GetAtt`. 
 
-2) Each function needs to have an explicit `FunctionName`. 
+**Important:** Each function needs to have an explicit `FunctionName`. 
 
 **Here is an example that you can use**
 ```yaml
