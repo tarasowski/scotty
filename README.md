@@ -2,7 +2,7 @@
 
 Scotty is a simple tool that uploads your Lambda code without redeployment of the whole stack. Scotty parses your `template.yaml` file, gets all the serverless functions, zips the folders of these functions, uploads them to s3 and calls AWS API `lambda.updateFunctionCode`. Scotty helps you to accelerate your development! Instant development and deployment of your functions. No more waiting for the redeployment of the whole stack.
 
-### Step 2
+### Step 1
 
 Run `npm i serverless-scotty` inside the folder where your `template.yaml` is located.
 
@@ -17,7 +17,7 @@ Add a command (see below) to your package.json file. *Don't forget to update `BU
   },
 ```
 
-#### Step 3
+### Step 3
 
 **Important** 
 1) Make sure your `template.yaml` doesn't contain short form cloudformation functions such as `!Sub`,`!GetAtt`instead use full function names such as `Fn::Sub:`, `Fn:GetAtt`. 
