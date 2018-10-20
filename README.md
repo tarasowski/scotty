@@ -1,20 +1,30 @@
 # Accelerate Your Serverless Development with AWS SAM & Scotty
 
-Scotty is a simple tool that uploads your Lambda code without redeployment of the whole stack. Scotty parses your `template.yaml` file, gets all the serverless functions, zips the folders of these functions, uploads them to s3 and calls AWS API `lambda.updateFunctionCode`. Scotty helps you to accelerate your development! Instant development and deployment of your functions.
+Scotty is a simple tool that uploads your Lambda code without redeployment of the whole stack. Scotty parses your `template.yaml` file, gets all the serverless functions, zips the folders of these functions, uploads them to s3 and calls AWS API `lambda.updateFunctionCode`. Scotty helps you to accelerate your development! Instant development and deployment of your functions. No more waiting for the redeployment of the whole stack.
 
-#### This is just a preview! It's not event an Alpha version. But it works!
-#### Note: It doesn't work with a short form `!Sub` syntax, use Syntax for the full function name! [see here](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-sub.html)
+### Step 2
 
-1. `cd` into your serverless project main directory (where the template.yaml is located)
-2. `git clone` this repository
-3. `cd scotty`and run `npm install`
-4. add to your main package.json under scripts `"scotty": "BUCKET_NAME=<bucket name> REGION=<region> node ./scotty/src/index.js",`
-5. run `npm run scotty`
-6. have fun
+Run `npm i serverless-scotty` inside the folder where your `template.yaml` is located.
 
+### Step 2
 
-#### This is how YAML should look like:
+Add a command (see below) to your package.json file. *Don't forget to update `BUCKET_NAME`and the `REGION`*
 
+```json
+"scripts": {
+    
+    "scotty": "BUCKET_NAME=cli-update-function-test REGION=eu-west-1 node ./node_modules/.bin/scotty"
+  },
+```
+
+#### Step 3
+
+**Important** 
+1) Make sure your `template.yaml` doesn't contain short form cloudformation functions such as `!Sub`,`!GetAtt`instead use full function names such as `Fn::Sub:`, `Fn:GetAtt`. 
+
+2) Each function needs to have an explicit `FunctionName`. 
+
+**Here is an example that you can use**
 ```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
@@ -46,12 +56,4 @@ Resources:
 
 
 ```
-### This is how the Output looks like:
-```sh
-$ npm run scotty
-> sam-app@1.0.0 scotty /scotty-test/sam-app
-> BUCKET_NAME=cli-update-function-test REGION=eu-west-1 node ./scotty/src/index.js
 
-uploading: xoaooj6oh-HelloWorldFunction
-updating: xoaooj6oh-HelloWorldFunction
-```
