@@ -7,7 +7,7 @@
     "scotty": "./src/index.js"
   },
   "scripts": {
-    "scotty": "BUCKET_NAME=<bucket name> REGION=<region> node ./src/index.js"
+    "test": "echo 'Tests coming soon'"
   },
   "keywords": [
     "serverless",
